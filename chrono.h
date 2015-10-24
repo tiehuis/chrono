@@ -30,18 +30,18 @@ static void chrono_diff(struct timespec *r, struct timespec *t, struct timespec 
     }
 }
 
-static void chrono_start_with_clock(chrono *t, int clock_type)
+static inline void chrono_start_with_clock(chrono *t, int clock_type)
 {
-    clock_gettime(clock_type, &t->begin);
     t->clock_type = clock_type;
+    clock_gettime(clock_type, &t->begin);
 }
 
-static void chrono_start(chrono *t)
+static inline void chrono_start(chrono *t)
 {
     chrono_start_with_clock(t, DEFAULT_CLOCK);
 }
 
-static void chrono_end(chrono *t)
+static inline void chrono_end(chrono *t)
 {
     clock_gettime(t->clock_type, &t->end);
     chrono_diff(&t->result, &t->begin, &t->end);
