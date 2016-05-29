@@ -25,3 +25,7 @@ int main(void)
     printf("%f\n", chrono_get_nsec(&tm));
 }
 ```
+
+# License
+
+Licensed under the 'unlicense' license.
