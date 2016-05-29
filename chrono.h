@@ -1,7 +1,12 @@
 #ifndef CHRONO_H
 #define CHRONO_H
 
-#define _POSIX_C_SOURCE 199309L
+/* An external library (e.g. GMP) may define this themselves, so do not
+ * redefine if already exists, to avoid warnings. */
+#ifndef _POSIX_C_SOURCE
+#   define _POSIX_C_SOURCE 199309L
+#endif
+
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
